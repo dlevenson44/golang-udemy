@@ -14,3 +14,9 @@
   - HOWEVER-- rather than modifying the existing slice, it creates a new one slice gets assigned to new variable
 - To run and compile multiple packages, run something like `go run main.go deck.go`
 - Receiver functions setup methods on variables that we create
+- Byte slice is like a string of characters
+  - a string that translates ascii characters into a string
+  - for example: Hi There! translatest to [72 105 32 116 104 101 114 101 33]
+  - translations available at https://www.asciitable.com/
+- Type conversion can take one type and make it another type
+  - ie `[]byte("Hi there!")` would take the provided string and convert it to a byte slice
