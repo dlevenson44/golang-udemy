@@ -20,3 +20,8 @@
   - translations available at https://www.asciitable.com/
 - Type conversion can take one type and make it another type
   - ie `[]byte("Hi there!")` would take the provided string and convert it to a byte slice
+- Test functions are written with PascalCase instead of camelCase
+  - Always start test func names with `Test`
+  - Include all functions being tested in the test name
+    - ie-- `TestSaveToDeckAndNewDeckFromFile` would be testing the `saveToDeck` and `newDeckFromFile` functions
+- 
