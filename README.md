@@ -44,3 +44,19 @@
 - Value Types vs Reference Types-- value types use pointers to change things in a function, reference types don't worry about pointers
   - Value types: int, float, string, bool, structs
   - Ref Types: slices, maps, channels, pointers, functions
+- Maps, like Structs, are like Ruby hashes and JS obejcts
+  - Keys and values are statically typed-- so all keys must be same type and all values have to be set of type
+    - So something like `Record<string, number>` in TS, where all keys would be strings and all values would be numbers
+- Maps V Structs
+  - Maps
+    - Reference Type!
+    - all keys must be the same type, all values must be the same type
+    - keys are index (we can iterate over them)
+    - Use to represent collection of related properties
+    - Don't need to know all keys at compile time
+  - Structs
+    - Value Type!
+    - values can be of different types
+    - Keys don't support index (not interable)
+    - Use to represent a thing with lots of different properties
+    - You need to know all fields at compile time
