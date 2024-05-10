@@ -60,3 +60,20 @@
     - Keys don't support index (not interable)
     - Use to represent a thing with lots of different properties
     - You need to know all fields at compile time
+- Interfaces
+  - Interfaces allow us to declare types that check other types for a property
+  - If it has that propety then it is accepted into the interface
+  - FOR EXAMPLE CHECK `/interfaces/main.go`
+  - OR...
+    - HYPOTHETICALLY-- you have types `englishBot` and `spanishBot` and they both have receiver functions called `getGreeting` which returns a string
+    - you could then declare interface `bot` with `type bot interface { getGreeting() string }` --> any type that has a function of `getGreeting` returning a string, it is considered a member of that interface
+      - So in this hypothetical, `englishBot` and `spanishBot` are both members of the `bot` interface
+  - Concrete types are built in types and types we build by extending those-- such as map, struct, int, string, or englishBot
+  - Interfaces are not generic types (generic types are things in other languages like C# and Java)
+  - Interfaces are 'implicit'-- we don't manually say that our custom type satisfies some interface
+  - Interfaces are a contract to help us manage types-- Garbage In -> Garbage Out
+    - If our custom type's implementation of a fcuntion is broken then interfaces won't help us
+  - Interfaces are tough-- step #1 is understanding how to read them
+    - Understand how to read interfaces in the standard lib
+    - Writing your own interfaces is tough and requires experience$$
+
