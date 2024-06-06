@@ -76,4 +76,26 @@
   - Interfaces are tough-- step #1 is understanding how to read them
     - Understand how to read interfaces in the standard lib
     - Writing your own interfaces is tough and requires experience$$
-
+- Concurrency-- allows us to have multiple threads executing code-- if one thread blocks, another one is picked up and worked on
+- Parallelism-- multiple threads executed at the same time, requiring multiple CPUs
+- Channels and Go Routines
+  - Both are structs in Go that are used to handle concurrency
+  - Go Routines
+    - when we compile and execute a Go program, we automatically create one Go Routine
+    - Go Routine something that exists in the running program/process
+    - Main is the routine created when launch our program, child routines (declared with `go` keyword) are treated as secondary
+    - GR takes every line of code and executes them one by one
+    - Can run a function on a new routine by executing with with `go`-- so instead of `checkLink(link)` it would be `go checkLink(link)`
+      - run this function inside of a brand new routine
+      - acts as a second engine so it can run each fetch asynchronously
+    - each time a routine is launched, we're launching a new engine
+    - Go Scheduler-- works with one CPU on our local machine-- even if running dual core, will default to running 1 CPU core
+      - scheuler runs ONE routine until it finishes or makes a blocking call (like HTTP request)
+      - monitors code that is running within each individual routine
+      - once scheduler detects routine has finished or is making a blocking call, then it manages the routines
+        - ie-- if one is done then it'll start another
+  - Channels
+    - used to communicate between different running Go Routines
+    - can use channels to indicate when child routines have finished so Main routine doesn't prematurely terminate
+    - Channels are typed-- data shared between routines must be same types-- so you can have a channel of type string, type int, etc.
+    - if you need to receive a channel in your main function when no channel exists, the program will just hang
